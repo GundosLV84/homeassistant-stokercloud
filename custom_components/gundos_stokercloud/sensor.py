@@ -12,8 +12,8 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
 
-from stokercloud.controller_data import PowerState, Unit, Value
-from stokercloud.client import Client as StokerCloudClient
+from GundosStokercloud.controller_data import PowerState, Unit, Value
+from GundosStokercloud.client import Client as StokerCloudClient
 
 
 import datetime

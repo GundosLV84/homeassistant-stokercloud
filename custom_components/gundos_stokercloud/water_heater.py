@@ -15,7 +15,7 @@ import homeassistant.util.dt as dt_util
 from .const import DOMAIN
 from .mixins import StokerCloudControllerMixin
 
-from stokercloud.controller_data import State
+from GundosStokercloud.controller_data import State
 
 _LOGGER = logging.getLogger(__name__)
 

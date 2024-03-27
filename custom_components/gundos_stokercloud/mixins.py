@@ -1,4 +1,4 @@
-from stokercloud.client import Client as StokerCloudClient
+from GundosStokercloud.client import Client as StokerCloudClient
 
 import logging
 

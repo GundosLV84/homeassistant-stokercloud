@@ -7,7 +7,7 @@ from homeassistant.helpers.typing import ConfigType
 from .const import DOMAIN, PLATFORMS
 from homeassistant.config_entries import ConfigEntry
 import asyncio
-from stokercloud.client import Client as StokerCloudClient
+from GundosStokercloud.client import Client as StokerCloudClient
 from homeassistant.const import CONF_USERNAME
 
 
