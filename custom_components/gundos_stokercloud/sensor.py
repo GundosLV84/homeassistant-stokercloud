@@ -31,6 +31,8 @@ async def async_setup_entry(hass, config, async_add_entities):
     """Set up the sensor platform."""
     client = hass.data[DOMAIN][config.entry_id]
     serial = config.data[CONF_USERNAME]
+    logger.debug(client.query_url)
+    logger.debug(client.cached_data)
     async_add_entities([
         StokerCloudControllerBinarySensor(client, serial, 'Running', 'running', 'power'),
         StokerCloudControllerBinarySensor(client, serial, 'Alarm', 'alarm', 'problem'),
