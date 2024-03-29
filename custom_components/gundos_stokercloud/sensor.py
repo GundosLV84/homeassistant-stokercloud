@@ -44,7 +44,7 @@ async def async_setup_entry(hass, config, async_add_entities):
         StokerCloudControllerSensor(client, serial, 'Boiler actual O2%', 'boiler_actualo2', SensorDeviceClass.MOISTURE),
         StokerCloudControllerSensor(client, serial, 'Hopper content', 'hopper_content', SensorDeviceClass.WEIGHT),
         StokerCloudControllerSensor(client, serial, 'Boiler wanted O2%', 'wanted_o2', SensorDeviceClass.MOISTURE),
-        StokerCloudControllerSensor(client, serial, 'Boiler wanted air flow', 'wanted_air', SensorDeviceClass.VOLUME_FLOW_RATE),
+        StokerCloudControllerSensor(client, serial, 'Boiler wanted air flow', 'wanted_air', SensorDeviceClass.VOLUME_FLOW_RATE), 
     ])
 
 
