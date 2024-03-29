@@ -1,12 +1,12 @@
 {
   "domain": "Gundoshass_stokercloud",
   "name": "Gundos Stoker Cloud",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "documentation": "https://github.com/GundosLV84/homeassistant-stokercloud",
   "issue_tracker": "https://github.com/GundosLV84/homeassistant-stokercloud/issues",
   "config_flow": true,
   "dependencies": ["http"],
   "codeowners": ["GundosLV84"],
-  "requirements": ["git+https://github.com/GundosLV84/GundosStokercloud-client.git#stokercloud==0.0.9"],
+  "requirements": ["git+https://github.com/GundosLV84/GundosStokercloud-client.git#stokercloud==0.1.0"],
   "iot_class": "cloud_polling"
 }
