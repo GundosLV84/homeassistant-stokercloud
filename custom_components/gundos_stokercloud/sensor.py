@@ -17,7 +17,7 @@ from GundosStokercloud.client import Client as StokerCloudClient
 
 
 import datetime
-from homeassistant.const import CONF_USERNAME, POWER_KILO_WATT, TEMP_CELSIUS, MASS_KILOGRAMS
+from homeassistant.const import CONF_USERNAME, POWER_KILO_WATT, TEMP_CELSIUS, MASS_KILOGRAMS, PERCENTAGE
 from .const import DOMAIN
 from .mixins import StokerCloudControllerMixin
 
@@ -39,6 +39,7 @@ async def async_setup_entry(hass, config, async_add_entities):
         StokerCloudControllerSensor(client, serial, 'Boiler Effect', 'boiler_kwh', SensorDeviceClass.POWER),
         StokerCloudControllerSensor(client, serial, 'Total Consumption', 'consumption_total', state_class=SensorStateClass.TOTAL_INCREASING), # state class STATE_CLASS_TOTAL_INCREASING
         StokerCloudControllerSensor(client, serial, 'State', 'state'),
+        StokerCloudControllerSensor(client, serial, 'Boiler Effect %', 'boiler_powerPrc', SensorDeviceClass.POWER_FACTOR),
     ])
 
 
@@ -91,4 +92,5 @@ class StokerCloudControllerSensor(StokerCloudControllerMixin, SensorEntity):
                 Unit.KWH: POWER_KILO_WATT,
                 Unit.DEGREE: TEMP_CELSIUS,
                 Unit.KILO_GRAM: MASS_KILOGRAMS,
+                Unit.PERCENTAGE: PERCENTAGE,
             }.get(self._state.unit)
