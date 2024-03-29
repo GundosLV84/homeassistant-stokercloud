@@ -17,7 +17,7 @@ from GundosStokercloud.client import Client as StokerCloudClient
 
 
 import datetime
-from homeassistant.const import CONF_USERNAME, POWER_KILO_WATT, TEMP_CELSIUS, MASS_KILOGRAMS, PERCENTAGE, UnitOfVolumeFlowRate
+from homeassistant.const import CONF_USERNAME, POWER_KILO_WATT, TEMP_CELSIUS, MASS_KILOGRAMS, PERCENTAGE, UnitOfVolumeFlowRate, UnitOfPressure
 from .const import DOMAIN
 from .mixins import StokerCloudControllerMixin
 
@@ -40,11 +40,15 @@ async def async_setup_entry(hass, config, async_add_entities):
         StokerCloudControllerSensor(client, serial, 'Total Consumption', 'consumption_total', state_class=SensorStateClass.TOTAL_INCREASING), # state class STATE_CLASS_TOTAL_INCREASING
         StokerCloudControllerSensor(client, serial, 'State', 'state'),
         StokerCloudControllerSensor(client, serial, 'Boiler Power %', 'boiler_powerPrc', SensorDeviceClass.POWER_FACTOR),
-        StokerCloudControllerSensor(client, serial, 'Boiler return temperature', 'boiler_returntemp', SensorDeviceClass.TEMPERATURE),
+        StokerCloudControllerSensor(client, serial, 'Boiler smoke temperature', 'boiler_returntemp', SensorDeviceClass.TEMPERATURE),
         StokerCloudControllerSensor(client, serial, 'Boiler actual O2%', 'boiler_actualo2', SensorDeviceClass.MOISTURE),
         StokerCloudControllerSensor(client, serial, 'Hopper content', 'hopper_content', SensorDeviceClass.WEIGHT),
         StokerCloudControllerSensor(client, serial, 'Boiler wanted O2%', 'wanted_o2', SensorDeviceClass.MOISTURE),
         StokerCloudControllerSensor(client, serial, 'Boiler wanted air flow', 'wanted_air', SensorDeviceClass.VOLUME_FLOW_RATE), 
+        StokerCloudControllerSensor(client, serial, 'Buffer tank temp', 'hotwater_temperature_current', SensorDeviceClass.TEMPERATURE), 
+        StokerCloudControllerSensor(client, serial, 'Back pressure', 'backpressure', SensorDeviceClass.PRESSURE), 
+        StokerCloudControllerSensor(client, serial, 'Exhaust fan', 'exhaust_fan', SensorDeviceClass.POWER_FACTOR), 
+        StokerCloudControllerSensor(client, serial, 'Photosensor', 'photosensor', SensorDeviceClass.HUMIDITY), 
     ])
 
 
@@ -99,4 +103,5 @@ class StokerCloudControllerSensor(StokerCloudControllerMixin, SensorEntity):
                 Unit.KILO_GRAM: MASS_KILOGRAMS,
                 Unit.PERCENT: PERCENTAGE,
                 Unit.M3HOUR: UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
+                Unit.PASCAL: UnitOfPressure.PA,
             }.get(self._state.unit)
