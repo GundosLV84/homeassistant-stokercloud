@@ -17,7 +17,7 @@ from GundosStokercloud.client import Client as StokerCloudClient
 
 
 import datetime
-from homeassistant.const import CONF_USERNAME, POWER_KILO_WATT, TEMP_CELSIUS, MASS_KILOGRAMS, PERCENTAGE
+from homeassistant.const import CONF_USERNAME, POWER_KILO_WATT, TEMP_CELSIUS, MASS_KILOGRAMS, PERCENTAGE, UnitOfVolumeFlowRate
 from .const import DOMAIN
 from .mixins import StokerCloudControllerMixin
 
@@ -40,6 +40,11 @@ async def async_setup_entry(hass, config, async_add_entities):
         StokerCloudControllerSensor(client, serial, 'Total Consumption', 'consumption_total', state_class=SensorStateClass.TOTAL_INCREASING), # state class STATE_CLASS_TOTAL_INCREASING
         StokerCloudControllerSensor(client, serial, 'State', 'state'),
         StokerCloudControllerSensor(client, serial, 'Boiler Effect %', 'boiler_powerPrc', SensorDeviceClass.POWER_FACTOR),
+        StokerCloudControllerSensor(client, serial, 'Boiler return temperature', 'boiler_returntemp', SensorDeviceClass.TEMPERATURE),
+        StokerCloudControllerSensor(client, serial, 'Boiler actual O2%', 'boiler_actualo2', SensorDeviceClass.MOISTURE),
+        StokerCloudControllerSensor(client, serial, 'Hopper content', 'hopper_content', SensorDeviceClass.WEIGHT),
+        StokerCloudControllerSensor(client, serial, 'Boiler wanted O2%', 'wanted_o2', SensorDeviceClass.MOISTURE),
+        StokerCloudControllerSensor(client, serial, 'Boiler wanted air flow', 'wanted_air', SensorDeviceClass.VOLUME_FLOW_RATE),
     ])
 
 
@@ -93,4 +98,5 @@ class StokerCloudControllerSensor(StokerCloudControllerMixin, SensorEntity):
                 Unit.DEGREE: TEMP_CELSIUS,
                 Unit.KILO_GRAM: MASS_KILOGRAMS,
                 Unit.PERCENT: PERCENTAGE,
+                Unit.M3HOUR: UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
             }.get(self._state.unit)

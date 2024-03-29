@@ -23,7 +23,7 @@ class StokerCloudControllerMixin:
     @property
     def name(self) -> str:
         """Return the name of the sensor."""
-        return "NBE %s" % self._name
+        return "GundosNBE %s" % self._name
 
     def update(self) -> None:
         """Fetch new state data for the sensor.
