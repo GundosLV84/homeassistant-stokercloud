@@ -92,5 +92,5 @@ class StokerCloudControllerSensor(StokerCloudControllerMixin, SensorEntity):
                 Unit.KWH: POWER_KILO_WATT,
                 Unit.DEGREE: TEMP_CELSIUS,
                 Unit.KILO_GRAM: MASS_KILOGRAMS,
-                Unit.PERCENTAGE: PERCENTAGE,
+                Unit.PERCENT: PERCENTAGE,
             }.get(self._state.unit)

@@ -1,7 +1,7 @@
 {
   "domain": "Gundoshass_stokercloud",
   "name": "Gundos Stoker Cloud",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "documentation": "https://github.com/GundosLV84/homeassistant-stokercloud",
   "issue_tracker": "https://github.com/GundosLV84/homeassistant-stokercloud/issues",
   "config_flow": true,
