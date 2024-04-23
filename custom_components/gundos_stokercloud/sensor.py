@@ -49,7 +49,7 @@ async def async_setup_entry(hass, config, async_add_entities):
         StokerCloudControllerSensor(client, serial, 'Boiler wanted air flow', 'wanted_air', SensorDeviceClass.VOLUME_FLOW_RATE), 
         StokerCloudControllerSensor(client, serial, 'Buffer tank temp', 'hotwater_temperature_current', SensorDeviceClass.TEMPERATURE), 
         StokerCloudControllerSensor(client, serial, 'Back pressure Pa', 'backpressure', SensorDeviceClass.PRESSURE), 
-        StokerCloudControllerSensor(client, serial, 'Exhaust fan %', 'exhaust_fan', SensorDeviceClass.POWER_FACTOR), 
+        StokerCloudControllerSensor(client, serial, 'Exhaust fan %', 'exhaust_fan' ), 
         StokerCloudControllerSensor(client, serial, 'Photosensor', 'photosensor', SensorDeviceClass.HUMIDITY), 
         StokerCloudControllerSensor(client, serial, 'Dropshaft temperature', 'dropshaft_temp', SensorDeviceClass.TEMPERATURE),
         StokerCloudControllerSensor(client, serial, 'Pressure Pa', 'pressure', SensorDeviceClass.PRESSURE), 
