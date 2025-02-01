@@ -1,5 +1,5 @@
 from __future__ import annotations
-from homeassistant.const import CONF_USERNAME, TEMP_CELSIUS
+from homeassistant.const import CONF_USERNAME, UnitOfTemperature
 import logging
 
 from homeassistant.components.water_heater import (
@@ -30,7 +30,7 @@ async def async_setup_entry(hass, config, async_add_entities):
 
 
 class StokerCloudWaterHeater(StokerCloudControllerMixin, WaterHeaterEntity):
-    _attr_temperature_unit = TEMP_CELSIUS
+    _attr_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_supported_features = 0
 
     @property
